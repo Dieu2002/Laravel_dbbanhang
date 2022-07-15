@@ -67,7 +67,7 @@
 
                         <div class="center">
                         <div class="space10">&nbsp;</div>
-                        <a href="" class="beta-btn primary text-center">Đặt hàng <i
+                        <a href="{{route('dathang')}}" class="beta-btn primary text-center">Đặt hàng <i
                             class="fa fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -138,15 +138,16 @@
         <div class="visible-xs clearfix"></div>
         <nav class="main-menu">
         <ul class="l-inline ov">
-            <li><a href="/trangchu">Trang chủ</a></li>
+            <li><a href="/">Trang chủ</a></li>
             <li><a href="/type/1"> Loại sản phẩm</a>
             <ul class="sub-menu">
                 @foreach($loai_sp as $loai)
                 <li><a href="/type/{{$loai->id}}">{{$loai->name}}</a></li>
                 @endforeach
             </ul>
+            <li><a href="/showadmin">Admin</a></li>
             </li>
-            <li><a href="about">Giới thiệu</a></li>
+            <li><a href="/about">Giới thiệu</a></li>
             <li><a href="/contact">Liên hệ</a></li>
         </ul>
         <div class="clearfix"></div>
