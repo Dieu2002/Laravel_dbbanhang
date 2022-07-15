@@ -59,7 +59,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <a class="add-to-cart" href=""><i
+              <a class="add-to-cart" href="themgiohang/{{$sanpham->id}}"><i
                   class="fa fa-shopping-cart"></i></a>
               <div class="clearfix"></div>
             </div>
@@ -142,7 +142,7 @@
                   </p>
                 </div>
                 <div class="single-item-caption">
-                  <a class="add-to-cart pull-left" href=""><i
+                  <a class="add-to-cart pull-left" href="{{route('themgiohang',$sp->id)}}"><i
                       class="fa fa-shopping-cart"></i></a>
                   <a class="beta-btn primary" href="detail/{{$sp->id}}">Details <i class="fa fa-chevron-right"></i></a>
                   <div class="clearfix"></div>
@@ -159,7 +159,7 @@
           <div class="widget-body">
             <div class="beta-sales beta-lists">
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -167,7 +167,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -175,7 +175,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -183,7 +183,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -198,7 +198,7 @@
           <div class="widget-body">
             <div class="beta-sales beta-lists">
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -206,7 +206,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -214,7 +214,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top
@@ -222,7 +222,7 @@
                 </div>
               </div>
               <div class="media beta-sales-item">
-                <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png"
+                <a class="pull-left" href="product.html"><img src="/source/image/product"
                     alt=""></a>
                 <div class="media-body">
                   Sample Woman Top

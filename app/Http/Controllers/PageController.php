@@ -8,6 +8,13 @@ use Illuminate\Http\Facades\Date;
 use App\Models\Slide;
 use App\Models\Product;
 use App\Models\Comment;
+use App\Models\Customer;
+use App\Models\bill;
+use App\Models\BillDetail;
+use App\Models\Wishlist;
+
+
+
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Session;
 
@@ -150,7 +157,7 @@ class PageController extends Controller
                                                                 'totalPrice' => $cart->totalPrice, 																	
                                                                 'totalQty' => $cart->totalQty]);;																	
         } else {																	
-            return redirect('trangchu');																	
+            return redirect('');																	
         }																	
     }																	
     public function postCheckout(Request $req)																	
@@ -168,7 +175,7 @@ class PageController extends Controller
             $customer->note = "Không có ghi chú gì";																	
         }																	
         $customer->save();																	
-        $bill = new Bill;																	
+        $bill = new bill;																	
         $bill->id_customer = $customer->id;																	
         $bill->date_order = date('Y-m-d');																	
         $bill->total = $cart->totalPrice;																	
