@@ -59,9 +59,12 @@ Route::post('/login', [UserController::class, 'Login']);
 Route::get('check-out', [PageController::class, 'getCheckout'])->name('dathang');														
 Route::post('check-out', [PageController::class, 'postCheckout'])->name('dathang');														
 // ---------------- Payment with VNPAY
-Route::get('/return-vnpay', function () {					
- return view('vnpay.return-vnpay');
-});					
+// Route::get('/return-vnpay', function () {					
+//  return view('vnpay.return-vnpay');
+// });		
+
+Route::post('/vnpay',[PageController::class,'vnpay']);	
+
 
 
 

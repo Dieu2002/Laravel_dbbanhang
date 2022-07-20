@@ -4,7 +4,7 @@
      
    <div id="content">
           
-      <form method="post" class="beta-form-checkout">
+      <form method="post" action="vnpay" class="beta-form-checkout">
                @csrf											
                
          <div class="row">
@@ -166,13 +166,14 @@
                                       
                      </ul>
                                  
-                  </div>
-                              
-                  <div class="text-center">											
-                                   <button type="submit" class="beta-btn primary">Đặt hàng <i class="fa fa-chevron-right"></i></button>											
-                                 
-                  </div>
-                            
+                  </div>           
+                  <div class="text-center">	
+                     <form method="post" action="vnpay">
+                     @csrf	
+                     <button type="submit" name="redirect" class="beta-btn primary">Đặt hàng <i class="fa fa-chevron-right"></i></button>  
+                     </form>
+                                
+                  </div>              
                </div>
                <!-- .your-order -->											
                        
