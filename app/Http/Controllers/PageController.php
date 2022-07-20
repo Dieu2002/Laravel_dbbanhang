@@ -209,10 +209,10 @@ class PageController extends Controller
                 $vnp_TmnCode = "A0XRU83L";//Mã website tại VNPAY 
                 $vnp_HashSecret = "WKLIPDZGMITJLGFIESTBOBLOGMHCJWZN"; //Chuỗi bí mật
                 
-                $vnp_TxnRef = date("YmdHis");  //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+                $vnp_TxnRef = rand(1,100000000);  //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
                 $vnp_OrderInfo =  $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
                 $vnp_OrderType = $vnp_OrderType = 'billpayment';
-                $vnp_Amount = 200000 * 100;														
+                $vnp_Amount = $_POST['tongtien'] * 100;														
                 $vnp_Locale = 'vn';														
                 // $vnp_IpAddr = request()->ip();														
                 $vnp_BankCode = 'NCB';
