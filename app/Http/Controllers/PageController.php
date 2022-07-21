@@ -12,7 +12,7 @@ use App\Models\Customer;
 use App\Models\bill;
 use App\Models\BillDetail;
 use App\Models\Wishlist;
-
+use Mail;
 
 
 use App\Models\ProductType;
@@ -201,23 +201,25 @@ class PageController extends Controller
                 $element->delete();
             }
         }
+        
     }
+												
             // ----------- PAYMENT WITH VNPAY -----------
              public function vnpay(){
+                $this->sendEmail($_POST['full_name'], $_POST['address'], $_POST['tongtien'], $_POST['phone'], $_POST['email']);
                 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
                 $vnp_Returnurl = "http://127.0.0.1:8000/vnpay";
                 $vnp_TmnCode = "A0XRU83L";//Mã website tại VNPAY 
                 $vnp_HashSecret = "WKLIPDZGMITJLGFIESTBOBLOGMHCJWZN"; //Chuỗi bí mật
                 
                 $vnp_TxnRef = rand(1,100000000);  //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-                $vnp_OrderInfo =  $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
-                $vnp_OrderType = $vnp_OrderType = 'billpayment';
+                $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
+                $vnp_OrderType = 'billpayment';
                 $vnp_Amount = $_POST['tongtien'] * 100;														
-                $vnp_Locale = 'vn';														
-                // $vnp_IpAddr = request()->ip();														
+                $vnp_Locale = 'vn';																												
                 $vnp_BankCode = 'NCB';
                 $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
-                //Add Params of 2.0.1 Version
+              
                
                 $inputData = array(
                     "vnp_Version" => "2.1.0",
@@ -255,23 +257,27 @@ class PageController extends Controller
                     }
                     $query .= urlencode($key) . "=" . urlencode($value) . '&';
                 }
-                
+        
                 $vnp_Url = $vnp_Url . "?" . $query;
                 if (isset($vnp_HashSecret)) {
-                    $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
+                    $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //  
                     $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
                 }
-                $returnData = array('code' => '00'
-                    , 'message' => 'success'
-                    , 'data' => $vnp_Url);
-                    if (isset($_POST['redirect'])) {
-                        header('Location: ' . $vnp_Url);
-                        die();
-                    } else {
-                        echo json_encode($returnData);
-                    }
-                    // vui lòng tham khảo thêm tại code demo													
-         }
-    
-}														
+                $returnData = array(
+                    'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+                );
+                if (isset($_POST['redirect'])) {
+                    header('Location: ' . $vnp_Url);
+                    die();
+                } else {
+                    echo json_encode($returnData);
+                }
+        }
+         public function sendEmail($name,$address,$bill,$number,$emaill){
+            Mail::send('page.email',compact('name','address','bill','number'),function($email) use ($emaill){
+                $email->subject('Thanh toán đơn hàng');
+                $email->to($emaill,"Shop bán bánh kẹo nè !!!");
+            });
+        }
+}
 

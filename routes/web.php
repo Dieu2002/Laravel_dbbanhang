@@ -64,7 +64,7 @@ Route::post('check-out', [PageController::class, 'postCheckout'])->name('dathang
 // });		
 
 Route::post('/vnpay',[PageController::class,'vnpay']);	
-Route::get('/vnpay',[PageController::class,'vnpay']);	
+
 
 
 
